@@ -1,0 +1,164 @@
+<!-- Tricolor Stripe -->
+<div class="tricolor-stripe"></div>
+
+<!-- Top Utility Bar matching aicte.gov.in screenshot -->
+<div class="top-utility-bar">
+  <div class="utility-inner">
+    <div class="utility-left">
+      <span class="date-str">{{ currentDateStr }}</span>
+      <span class="sep">|</span>
+      <span>🔊 Screen Reader Access</span>
+      <span class="sep">|</span>
+      <span>Smart Automation • SIH26263 • AICTE Regulation Bureau</span>
+    </div>
+    <div class="utility-right">
+      <span class="lang-tag">A/आ हिन्दी</span>
+      <a routerLink="/college" class="web-login-pill">🔒 Web Portal Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header with Emblem -->
+<header class="main-header">
+  <div class="header-inner">
+    <a routerLink="/" class="brand-link">
+      <div class="emblem-circle">
+        <span class="star">★</span>
+        <span class="text">AICTE</span>
+      </div>
+      <div>
+        <h1 class="hindi-title">अखिल भारतीय तकनीकी शिक्षा परिषद् <span class="badge-reg">Regulation Bureau</span></h1>
+        <h2 class="eng-title">All India Council for Technical Education</h2>
+        <p class="moe-text">Department of Higher Education, Ministry of Education, Government of India</p>
+      </div>
+    </a>
+
+    <div class="header-right">
+      <div class="apaar-tag">
+        <strong>APAAR ID Integration</strong>
+        <p>One Nation, One Student ID (DigiLocker & NAD Depository)</p>
+      </div>
+      <div class="status-indicator">
+        <span class="pulsing-dot"></span>
+        <span>AICTE National Gateway: Active</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Navigation Bar -->
+<nav class="main-nav">
+  <div class="nav-inner">
+    <div class="nav-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/student" routerLinkActive="active">Student Portal <span class="nav-badge">Direct APAAR</span></a>
+      <a routerLink="/college" routerLinkActive="active">College Admin <span class="nav-badge">Intake Audit</span></a>
+      <a routerLink="/aicte" routerLinkActive="active">AICTE Super Admin <span class="nav-badge">Pan-India</span></a>
+    </div>
+    <div>
+      <a routerLink="/student" class="verify-btn">✨ Verify APAAR ID</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Page Content -->
+<main class="page-content">
+  <router-outlet></router-outlet>
+</main>
+
+<!-- Floating AICTE Sahayak Bot Widget -->
+<div class="bot-floating-widget no-print">
+  <button *ngIf="!botOpen" (click)="toggleBot()" class="bot-bubble">
+    <span class="bot-icon">🤖</span>
+    <span class="bot-title">AICTE Sahayak</span>
+  </button>
+
+  <div *ngIf="botOpen" class="bot-window gov-card">
+    <div class="bot-header">
+      <div class="bot-head-left">
+        <span>🤖</span>
+        <div>
+          <h4>AICTE Sahayak Virtual Helpdesk</h4>
+          <small>Government AI Student & Institutional Assistant</small>
+        </div>
+      </div>
+      <button (click)="toggleBot()" class="bot-close">✕</button>
+    </div>
+
+    <div class="bot-messages">
+      <div *ngFor="let m of botMessages" [ngClass]="m.sender" class="msg-bubble">
+        {{ m.text }}
+      </div>
+    </div>
+
+    <div class="bot-faq">
+      <button (click)="sendBotMessage('What is APAAR ID?')">What is APAAR ID?</button>
+      <button (click)="sendBotMessage('How are duplicate enrolments handled?')">Duplicate Detection</button>
+      <button (click)="sendBotMessage('What is the approved intake rule?')">Intake Quotas</button>
+    </div>
+
+    <div class="bot-input-row">
+      <input type="text" [(ngModel)]="botInput" (keyup.enter)="sendBotMessage()" placeholder="Ask Sahayak anything..." />
+      <button (click)="sendBotMessage()">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- Government Footer -->
+<footer class="main-footer">
+  <!-- Security Bar -->
+  <div class="security-strip">
+    <div class="sec-inner">
+      <span>🛡️ SECURITY & REGULATORY ARCHITECTURE:</span>
+      <div class="sec-badges">
+        <span class="sec-pill">🔒 AES-256 Encrypted</span>
+        <span class="sec-pill">✅ Consent-Based Access (DPDP Act)</span>
+        <span class="sec-pill">📜 Audit Logged Ledger (JPA)</span>
+        <span class="sec-pill">📡 Apache Kafka Message Broker</span>
+        <span class="sec-pill">📊 Apache POI Excel Engine</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h3>All India Council for Technical Education</h3>
+      <p class="reg-text">Regulation Bureau • SIH Problem Statement #26263</p>
+      <p class="addr">Nelson Mandela Marg, Vasant Kunj, New Delhi - 110070.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Platform Portals</h4>
+      <ul>
+        <li><a routerLink="/student">Student APAAR ID Verification</a></li>
+        <li><a routerLink="/college">College Admin & Intake Audit</a></li>
+        <li><a routerLink="/aicte">AICTE Central Super Admin</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Regulatory Standards</h4>
+      <ul>
+        <li>DigiLocker & NAD Verified</li>
+        <li>DPDP Act 2023 Compliant</li>
+        <li>AICTE APH 2026-27 Norms</li>
+        <li>Automated Anomaly Audit</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="sih-box">
+        <div class="sih-head">
+          <span>Smart India Hackathon</span>
+          <span class="sih-code">SIH26263</span>
+        </div>
+        <p>APAAR ID-Based Student Data Management Platform</p>
+        <small>Theme: Smart Automation</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright-bar">
+    © 2026 All India Council for Technical Education (AICTE). All Rights Reserved. | Ministry of Education, Govt. of India
+  </div>
+</footer>

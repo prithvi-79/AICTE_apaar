@@ -1,0 +1,255 @@
+/* AICTE Official Government Styling - Refined Professional Design System */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+  --aicte-navy: #0F2C61;
+  --aicte-deep: #091B3D;
+  --aicte-navy-hover: #163B7E;
+  --aicte-saffron: #D97706;
+  --aicte-saffron-light: #F59E0B;
+  --aicte-green: #15803D;
+  --aicte-green-light: #16A34A;
+  --aicte-red: #B91C1C;
+  --aicte-bg: #F8FAFC;
+  --aicte-surface: #FFFFFF;
+  --aicte-border: #E2E8F0;
+  --aicte-border-subtle: #EDF2F7;
+  --aicte-text: #1E293B;
+  --aicte-muted: #64748B;
+  --aicte-subtle: #94A3B8;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--aicte-bg);
+  color: var(--aicte-text);
+  min-height: 100vh;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Indian National Tricolor Accent Line */
+.tricolor-stripe {
+  background: linear-gradient(to right, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+  height: 4px;
+  width: 100%;
+}
+
+/* Card-Reduction Structural Container: Restrained, Subtle, Non-Floating */
+.gov-card {
+  background: #ffffff;
+  border: 1px solid var(--aicte-border);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+/* Unified Metric Ribbon Layout (Replaces Excessive Floating Box Grids) */
+.metric-ribbon {
+  display: flex;
+  align-items: stretch;
+  background: #ffffff;
+  border: 1px solid var(--aicte-border);
+  border-radius: 8px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.metric-cell {
+  flex: 1;
+  padding: 16px 20px;
+  border-right: 1px solid var(--aicte-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.metric-cell:last-child {
+  border-right: none;
+}
+
+.metric-cell.clickable {
+  cursor: pointer;
+}
+
+.metric-cell.clickable:hover {
+  background: #F8FAFC;
+}
+
+.metric-cell .cell-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--aicte-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.metric-cell .cell-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--aicte-navy);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.metric-cell .cell-sub {
+  font-size: 11px;
+  color: var(--aicte-muted);
+}
+
+/* Standard Government Buttons */
+.gov-btn-primary {
+  background-color: var(--aicte-navy);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.gov-btn-primary:hover {
+  background-color: var(--aicte-navy-hover);
+}
+
+.gov-btn-saffron {
+  background-color: var(--aicte-saffron);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid #B45309;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.15s;
+}
+
+.gov-btn-saffron:hover {
+  opacity: 0.95;
+}
+
+.gov-btn-outline {
+  background: transparent;
+  color: var(--aicte-navy);
+  border: 1px solid var(--aicte-navy);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.gov-btn-outline:hover {
+  background: #EFF6FF;
+}
+
+/* Institutional Status Pills */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.status-verified {
+  background: #DCFCE7;
+  color: #15803D;
+  border: 1px solid #BBF7D0;
+}
+
+.status-pending {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+.status-duplicate {
+  background: #FEE2E2;
+  color: #B91C1C;
+  border: 1px solid #FECACA;
+}
+
+.status-rejected {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+}
+
+/* Accessible Institutional Tables */
+.table-container {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--aicte-border);
+}
+
+.gov-table, .registry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  text-align: left;
+}
+
+.gov-table thead, .registry-table thead {
+  background: #F1F5F9;
+  border-bottom: 2px solid var(--aicte-border);
+}
+
+.gov-table th, .registry-table th {
+  padding: 10px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.gov-table td, .registry-table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #F1F5F9;
+  color: #1E293B;
+  vertical-align: middle;
+}
+
+.gov-table tbody tr:hover, .registry-table tbody tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* Monospace ID styling */
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-card {
+    border: 2px solid #0F2C61 !important;
+    box-shadow: none !important;
+  }
+  body {
+    background: #ffffff !important;
+  }
+}

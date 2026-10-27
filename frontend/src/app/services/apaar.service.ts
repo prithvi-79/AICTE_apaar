@@ -91,17 +91,24 @@ export interface BlindMatchConflict {
 export class ApaarService {
   private get baseUrl(): string {
     if (typeof window !== 'undefined') {
-      const customUrl = (window as any).API_URL || localStorage.getItem('API_URL');
-      if (customUrl) return customUrl;
+      const customUrl =
+        (window as any).API_URL || localStorage.getItem('API_URL');
+
+      if (customUrl) {
+        return customUrl.replace(/\/+$/, '');
+      }
+
       const host = window.location.hostname;
+
       if (host !== 'localhost' && host !== '127.0.0.1') {
-        return '/api';
+        return 'https://aicte-apaar-backend.vercel.app';
       }
     }
+
     return 'http://127.0.0.1:8085/api';
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   verifyApaar(apaarId: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/verify/${encodeURIComponent(apaarId)}`);

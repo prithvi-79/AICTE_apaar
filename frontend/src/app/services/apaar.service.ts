@@ -95,13 +95,13 @@ export class ApaarService {
         (window as any).API_URL || localStorage.getItem('API_URL');
 
       if (customUrl) {
-        return customUrl.replace(/\/+$/, '');
+        return `${customUrl.replace(/\/+$/, '')}/api`;
       }
 
       const host = window.location.hostname;
 
       if (host !== 'localhost' && host !== '127.0.0.1') {
-        return 'https://aicte-apaar-backend.vercel.app';
+        return 'https://aicte-apaar-backend.vercel.app/api';
       }
     }
 
